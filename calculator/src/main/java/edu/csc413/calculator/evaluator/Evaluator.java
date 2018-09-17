@@ -20,7 +20,7 @@ public class Evaluator {
 
   public int eval( String expression ) {
     String token;
-
+    // Mumbo Jumbo
     // The 3rd argument is true to indicate that the delimiters should be used
     // as tokens, too. But, we'll need to remember to filter out spaces.
     this.tokenizer = new StringTokenizer( expression, DELIMITERS, true );
