@@ -8,7 +8,7 @@ public abstract class Operator {
     // The Operator class should contain an instance of a HashMap
     // This map will use keys as the tokens we're interested in,
 
-    public static HashMap<String, Operator> operators = new HashMap<String, Operator>();
+    private static final HashMap<String, Operator> operators = new HashMap<>();
 
     static {
 
@@ -17,8 +17,9 @@ public abstract class Operator {
         operators.put("*", new MultiplyOperator());
         operators.put("/", new DivideOperator());
         operators.put("^", new PowerOperator());
-        //operators.put("(", new LeftParenthesis());
-        //operators.put(")", new RightParenthesis());
+        operators.put("(", new LeftParenthesis());
+        operators.put(")", new RightParenthesis());
+
     }
 
     public abstract int priority();
@@ -31,6 +32,12 @@ public abstract class Operator {
     public static boolean check( String token ) {
 
         return operators.containsKey(token);
+    }
+
+    public static Operator getOperator(String token){
+
+        return operators.get(token);
+
     }
 
 }

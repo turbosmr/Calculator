@@ -6,7 +6,7 @@ public class PowerOperator extends Operator {
 
     public int priority(){
 
-        return 3;
+        return 4;
     }
 
     public Operand execute(Operand op1, Operand op2 ){

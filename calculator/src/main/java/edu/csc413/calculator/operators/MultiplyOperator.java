@@ -8,7 +8,7 @@ public class MultiplyOperator extends Operator {
 
     public int priority(){
 
-        return 2;
+        return 3;
     }
 
     public Operand execute(Operand op1, Operand op2 ){

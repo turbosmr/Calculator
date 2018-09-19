@@ -9,7 +9,7 @@ public class Evaluator {
   private Stack<Operand> operandStack;
   private Stack<Operator> operatorStack;
   private StringTokenizer tokenizer;
-  private static final String DELIMITERS = "+-*^/";
+  private static final String DELIMITERS = "+-*^/()";
 
   public Evaluator() {
 
@@ -45,11 +45,11 @@ public class Evaluator {
           // The Operator class should contain an instance of a HashMap,
           // and values will be instances of the Operators.  See Operator class
           // skeleton for an example.
-          Operator newOperator = Operator.operators.get(token);
+          Operator newOperator = Operator.getOperator(token);
 
-          if (! operatorStack.empty()) {
+          if (!(token == "(")) {
 
-            while (operatorStack.peek().priority() >= newOperator.priority()) {
+            while ((!operatorStack.isEmpty()) && (operatorStack.peek().priority() >= newOperator.priority())) {
               // note that when we eval the expression 1 - 2 we will
               // push the 1 then the 2 and then do the subtraction operation
               // This means that the first number to be popped is the
@@ -66,7 +66,7 @@ public class Evaluator {
       }
     }
 
-    while (! operatorStack.empty()){
+    while (! operatorStack.isEmpty() ){
 
       Operator oldOpr = operatorStack.pop();
       Operand op2 = operandStack.pop();

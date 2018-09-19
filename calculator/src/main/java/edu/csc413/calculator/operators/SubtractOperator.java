@@ -8,7 +8,7 @@ public class SubtractOperator extends Operator {
 
     public int priority(){
 
-        return 1;
+        return 2;
     }
 
     public Operand execute(Operand op1, Operand op2 ){
