@@ -6,11 +6,11 @@ public class RightParenthesis extends Operator {
 
     public int priority() {
 
-        return 1;
+        return 5;
     }
 
     public Operand execute(Operand opd1, Operand opd2) {
 
-        return opd1;
+        return null;
     }
 }

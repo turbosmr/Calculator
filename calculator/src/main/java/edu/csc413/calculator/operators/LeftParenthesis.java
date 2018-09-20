@@ -11,6 +11,6 @@ public class LeftParenthesis extends Operator{
 
     public Operand execute(Operand opd1, Operand opd2) {
 
-        return opd1;
+        return null;
     }
 }

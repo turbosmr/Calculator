@@ -11,6 +11,15 @@ public class Evaluator {
   private StringTokenizer tokenizer;
   private static final String DELIMITERS = "+-*^/()";
 
+
+  public void Stacks(){
+
+    Operator oldOpr = operatorStack.pop();
+    Operand op2 = operandStack.pop();
+    Operand op1 = operandStack.pop();
+    operandStack.push(oldOpr.execute(op1, op2));
+
+  }
   public Evaluator() {
 
     operandStack = new Stack<>();
@@ -47,20 +56,15 @@ public class Evaluator {
           // skeleton for an example.
           Operator newOperator = Operator.getOperator(token);
 
-          if (!(token == "(")) {
-
             while ((!operatorStack.isEmpty()) && (operatorStack.peek().priority() >= newOperator.priority())) {
               // note that when we eval the expression 1 - 2 we will
               // push the 1 then the 2 and then do the subtraction operation
               // This means that the first number to be popped is the
               // second operand, not the first operand - see the following code
-
-              Operator oldOpr = operatorStack.pop();
-              Operand op2 = operandStack.pop();
-              Operand op1 = operandStack.pop();
-              operandStack.push(oldOpr.execute(op1, op2));
+             Stacks();
+             continue;
             }
-          }
+
           operatorStack.push( newOperator );
         }
       }
@@ -68,11 +72,7 @@ public class Evaluator {
 
     while (! operatorStack.isEmpty() ){
 
-      Operator oldOpr = operatorStack.pop();
-      Operand op2 = operandStack.pop();
-      Operand op1 = operandStack.pop();
-      operandStack.push( oldOpr.execute( op1, op2 ));
-
+      Stacks();
     }
     // Control gets here when we've picked up all of the tokens; you must add
     // code to complete the evaluation - consider how the code given here
