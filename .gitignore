@@ -59,3 +59,7 @@ calculator/src/test/test.iml
 gradle/wrapper/gradle-wrapper.properties
 gradlew
 gradlew.bat
+calculator/.DS_Store
+calculator/src/.DS_Store
+documentation/.DS_Store
+.DS_Store
