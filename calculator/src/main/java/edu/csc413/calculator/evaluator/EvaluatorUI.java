@@ -25,6 +25,7 @@ public class EvaluatorUI extends JFrame implements ActionListener {
     private Button[] buttons = new Button[bText.length];
 
     public static void main(String argv[]) {
+
         EvaluatorUI calc = new EvaluatorUI();
     }
 
@@ -66,10 +67,26 @@ public class EvaluatorUI extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent arg0) {
 
-        if (arg0.getActionCommand().equals("=")){
-
-
+        if(arg0.getSource()== buttons[18] || arg0.getSource() == buttons[19]){
+                    txField.setText("");
         }
+        else if(arg0.getSource() == buttons[14]) {
 
+            if (!txField.getText().equals("")) {
+
+                int answer;
+                Evaluator ev = new Evaluator();
+                answer = ev.eval(txField.getText());
+                txField.setText(Integer.toString(answer));
+            }
+        }
+        else {
+
+            for(int i = 0; i < buttons.length; i++){
+                if (arg0.getSource() == buttons[i]){
+                    txField.setText(txField.getText()+bText[i]);
+                }
+            }
+        }
     }
 }

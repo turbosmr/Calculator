@@ -9,7 +9,7 @@ public class LeftParenthesis extends Operator{
         return 0;
     }
 
-    public Operand execute(Operand opd1, Operand opd2) {
+    public Operand execute(Operand op1, Operand op2) {
 
         return null;
     }

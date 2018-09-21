@@ -4,6 +4,8 @@ import edu.csc413.calculator.evaluator.Operand;
 
 public class PowerOperator extends Operator {
 
+    private int answer;
+
     public int priority(){
 
         return 4;
@@ -12,9 +14,9 @@ public class PowerOperator extends Operator {
     public Operand execute(Operand op1, Operand op2 ){
 
         Double power = Math.pow(op1.getValue(), op2.getValue());
-        int pow = (int)power.doubleValue();
+        answer = (int)power.doubleValue();
 
-        return new Operand(pow);
+        return new Operand(answer);
     }
 }
 
