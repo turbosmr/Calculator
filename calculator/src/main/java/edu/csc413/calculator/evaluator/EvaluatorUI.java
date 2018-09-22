@@ -66,14 +66,15 @@ public class EvaluatorUI extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent arg0) {
+        // sets the c and ce buttons to clear the screen
+        if(arg0.getSource()== buttons[18] || arg0.getSource() == buttons[19]) {
 
-        if(arg0.getSource()== buttons[18] || arg0.getSource() == buttons[19]){
                     txField.setText("");
         }
+        // code for the = button to calculate numbers
         else if(arg0.getSource() == buttons[14]) {
 
             if (!txField.getText().equals("")) {
-
                 int answer;
                 Evaluator ev = new Evaluator();
                 answer = ev.eval(txField.getText());
@@ -81,9 +82,10 @@ public class EvaluatorUI extends JFrame implements ActionListener {
             }
         }
         else {
+            //puts the numbers and operators on the screen
+            for(int i = 0; i < buttons.length; i++) {
 
-            for(int i = 0; i < buttons.length; i++){
-                if (arg0.getSource() == buttons[i]){
+                if (arg0.getSource() == buttons[i]) {
                     txField.setText(txField.getText()+bText[i]);
                 }
             }
